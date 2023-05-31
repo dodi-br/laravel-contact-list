@@ -41,7 +41,7 @@ class ContactsController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email|unique:contacts',
-            'phone' => 'required|unique:contacts'
+            'phone' => 'required|unique:contacts|digits:9'
         ]);
  
         if ($validator->fails()) {
@@ -79,7 +79,7 @@ class ContactsController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email|unique:contacts,email,' . $contact->id,
-            'phone' => 'required|unique:contacts,phone,' . $contact->id,
+            'phone' => 'required||digits:9|unique:contacts,phone,' . $contact->id,
         ]);
  
         if ($validator->fails()) {
