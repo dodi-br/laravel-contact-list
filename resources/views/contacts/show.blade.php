@@ -32,6 +32,7 @@
         </div>
     </div>
 
+    @auth
     <div class="row">
         <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">
             <div class="pull-left">
@@ -42,4 +43,5 @@
             </div>
         </form>        
     </div>
+    @endauth
 @endsection
